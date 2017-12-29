@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tropas</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Ataque</th>
+      <th>Defensa</th>
+      <th> Tipo Tropa </th>
+      <th> Recurso Necesario </th>
+      <th> Cantidad de Recurso </th>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tropas.each do |tropa| %>
+      <tr>
+        <td><%= tropa.nombre %></td>
+        <td><%= tropa.atk %></td>
+        <td><%= tropa.def %></td>
+        <td> <%= tropa.tipo_tropa.nombre%> </td>
+        <td><%= tropa.recurso.nombre %></td>
+        <td><%= tropa.cantidad_rec %></td>
+        <% @rec = current_user.recursos_por_usuarios.where(recurso_id: tropa.recurso_id)
+          if @rec.exists?
+            @rec = @rec.first
+            if @rec.cantidad >= tropa.cantidad_rec
+        %>
+              <td><%= link_to 'Adquirir', nueva_tropa_path(tropa) %></td>
+
+      </tr>
+    <%      end
+          end
+      end %>
+  </tbody>
+</table>
+
+<br>

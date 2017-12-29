@@ -1,0 +1,2 @@
+module TipoTropasHelper
+end

@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tropas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Ataque</th>
+      <th>Defensa</th>
+      <th> Tipo Tropa </th>
+      <th> Recurso Necesario </th>
+      <th> Cantidad de Recurso </th>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tropas.each do |tropa| %>
+      <tr>
+        <td><%= tropa.nombre %></td>
+        <td><%= tropa.atk %></td>
+        <td><%= tropa.def %></td>
+        <td> <%= tropa.tipo_tropa.nombre%> </td>
+        <td><%= tropa.recurso.nombre %></td>
+        <td><%= tropa.cantidad_rec %></td>
+        <td><%= link_to 'Show', tropa %></td>
+        <td><%= link_to 'Edit', edit_tropa_path(tropa) %></td>
+        <td><%= link_to 'Destroy', tropa, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Agregar Tropa', new_tropa_path %>

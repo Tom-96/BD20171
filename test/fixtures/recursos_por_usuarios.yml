@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  recurso: one
+  ultima_fecha: 2017-06-12 23:47:14
+  cantidad: 1
+
+two:
+  user: two
+  recurso: two
+  ultima_fecha: 2017-06-12 23:47:14
+  cantidad: 1

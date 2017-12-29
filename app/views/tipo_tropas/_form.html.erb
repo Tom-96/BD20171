@@ -1,0 +1,32 @@
+<%= form_with(model: tipo_tropa, local: true) do |form| %>
+  <% if tipo_tropa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tipo_tropa.errors.count, "error") %> prohibited this tipo_tropa from being saved:</h2>
+
+      <ul>
+      <% tipo_tropa.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :tipo_tropa_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :boni_atk %>
+    <%= form.number_field :boni_atk, id: :tipo_tropa_boni_atk %>
+  </div>
+
+  <div class="field">
+    <%= form.label :boni_def %>
+    <%= form.number_field :boni_def, id: :tipo_tropa_boni_def %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

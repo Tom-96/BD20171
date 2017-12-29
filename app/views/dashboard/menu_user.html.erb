@@ -1,0 +1,30 @@
+
+
+
+<h1> Sus tropas </h1>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th> Fecha Adquisición</th>
+      <th>Ataque</th>
+      <th>Defensa</th>
+      <th> Tipo Tropa </th>
+
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tropas.each do |t| %>
+      <tr>
+        <td><%= t.tropa.nombre %></td>
+        <td> <%= t.fecha %></td>
+        <td><%= t.curr_atk %></td>
+        <td><%= t.curr_def %></td>
+        <td> <%= t.tropa.tipo_tropa.nombre%> </td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>

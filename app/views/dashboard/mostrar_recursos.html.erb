@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1> Mis Recursos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th> Cantidad </th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recursos.each do |recurso| %>
+      <tr>
+        <td><%= recurso.nombre %></td>
+      <%
+        @rec = recurso.recursos_por_usuarios.where(user_id: current_user.id).first
+        if @rec
+      %>
+      <td><%= @rec.cantidad %></td>
+      <%
+          if Time.now - @rec.ultima_fecha >= 60
+      %>
+        <td><%= link_to 'Adquirir', add_recurso_path(recurso) %></td>
+      <%
+          end
+       else %>
+      <td> 0 </td>
+      <td><%= link_to 'Adquirir', add_recurso_path(recurso) %></td>
+      <%end %>
+
+      </tr>
+    <%
+      end %>
+  </tbody>
+</table>
+
+<br>

@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @tropa.nombre %>
+</p>
+
+<p>
+  <strong>Ataque:</strong>
+  <%= @tropa.atk %>
+</p>
+
+<p>
+  <strong>Defensa:</strong>
+  <%= @tropa.def %>
+</p>
+<p>
+	<strong> Tipo Tropa: </strong>
+	<%= @tropa.tipo_tropa.nombre%>
+</p>
+<p>
+  <strong>Recurso:</strong>
+  <%= @tropa.recurso.nombre %> ( <%= @tropa.cantidad_rec%> unidades)
+</p>
+
+
+<%= link_to 'Edit', edit_tropa_path(@tropa) %> |
+<%= link_to 'Back', tropas_path %>

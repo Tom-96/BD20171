@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usuario: one
+  tropa: one
+  fecha: 2017-06-06
+  curr_atk: 1
+  curr_def: 1
+
+two:
+  usuario: two
+  tropa: two
+  fecha: 2017-06-06
+  curr_atk: 1
+  curr_def: 1

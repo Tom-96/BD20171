@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @tipo_tropa.nombre %>
+</p>
+
+<p>
+  <strong>Boni atk:</strong>
+  <%= @tipo_tropa.boni_atk %>
+</p>
+
+<p>
+  <strong>Boni def:</strong>
+  <%= @tipo_tropa.boni_def %>
+</p>
+
+<%= link_to 'Edit', edit_tipo_tropa_path(@tipo_tropa) %> |
+<%= link_to 'Back', tipo_tropas_path %>

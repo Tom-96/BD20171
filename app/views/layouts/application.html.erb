@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pauta</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  	<% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %> alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <%= value %>
+    </div>
+<% end %>
+
+<% if current_user %>
+  <div> Bienvenido <%= current_user.name%></div>
+  <%= link_to 'Mis Tropas', user_root_path%>
+
+    <%= link_to 'Edit Profile', edit_user_registration_path%>
+    <%= link_to 'Listado Tropas', dashboard_mostrar_tropas_path%>
+    <%= link_to 'Mis Recursos', dashboard_mostrar_recursos_path%>
+    <%= link_to 'Atacar', dashboard_atacar_path%>
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+
+
+
+
+<% elsif current_admin%>
+<div> Bienvenido <%= current_admin.name%></div>
+     <%= link_to 'Logout', destroy_admin_session_path, method: :delete %>
+     <%= link_to 'Edit Profile', edit_admin_registration_path%>
+     <%= link_to 'Listado Tropas', tropas_path%>
+     <%= link_to 'Listado Recursos', recursos_path%>
+     <%= link_to 'Lista TipoTropas', tipo_tropas_path%>
+
+<% else %>
+<%= link_to 'Login User', new_user_session_path %>
+<%= link_to 'Login Admin', new_admin_session_path %>
+<% end %>
+
+    <%= yield %>
+  </body>
+</html>
